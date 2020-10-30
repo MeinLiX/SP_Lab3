@@ -1,0 +1,19 @@
+using System ;
+0.5
+-0.5
+0x213
+-0x213
+1test
+-test
+// My Magic COMMENT
+namespace MyPoligon
+{
+    class Program
+    {
+        static int Main ( )
+        {
+        int mynum = 5 ;
+        return 0 ;
+        }
+    }
+}
