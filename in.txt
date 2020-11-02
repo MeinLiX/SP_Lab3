@@ -1,18 +1,23 @@
-using System ;
+usingSystem;
 0.5
 -0.5
 0x213
 -0x213
 1test
 -test
+$3@14
+my@$%2
 // My Magic COMMENT
 namespace MyPoligon
 {
     class Program
     {
+        static float MySecret ( ) {
+        return 1.0 ;
+        }
         static int Main ( )
         {
-        int mynum = 5 ;
+        float mynum = MySecret () ;
         return 0 ;
         }
     }

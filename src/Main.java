@@ -50,7 +50,6 @@ class TypeLex {
             for (String token : tokens)
                 if (lex.equals(token))
                     return true;
-
         } else
             return method.apply(lex);
 
@@ -70,21 +69,21 @@ public class Main {
         return true;
     }
 
-    private boolean HEXADECIMALNumberSolve(String lex) { //TODO:THINK ABOUT LOGIC
-        for (char ch : lex.startsWith("-") ? lex.substring(1).toCharArray() : lex.toCharArray())
-            if (!(Character.isDigit(ch)))
-                return false;
-
-        return true;
-    }
-
-    private boolean DecimalNumberSolve(String lex) { //TODO:THINK ABOUT LOGIC
+    private boolean HEXADECIMALNumberSolve(String lex) {
         lex = lex.startsWith("-") ? lex.substring(1) : lex;
         lex = lex.startsWith("0") ? lex.substring(1) : null;
         if (lex == null) return false;
         lex = lex.toLowerCase().startsWith("x") ? lex.substring(1) : null;
         if (lex == null) return false;
         for (char ch : lex.toCharArray())
+            if (!(Character.isDigit(ch)))
+                return false;
+
+        return true;
+    }
+
+    private boolean DecimalNumberSolve(String lex) {
+        for (char ch : lex.startsWith("-") ? lex.substring(1).toCharArray() : lex.toCharArray())
             if (!(Character.isDigit(ch)))
                 return false;
 
@@ -135,10 +134,6 @@ public class Main {
             }
             if (lexeme.GetType() == null) {
                 lexeme = new Lexeme(lexeme.GetValue(), new TypeLex("Error", new String[]{}));
-                // lexeme = new Lexeme(lexeme.GetValue(), Arrays.stream(TypesLex)
-                // .filter(i -> i.GetName() == "Error")
-                // .findFirst()
-                // .orElse(new TypeLex("Error(ELSE)", new String[]{})));
             }
             if (lexeme.GetType().GetName() == "Comment") {
                 scanner.nextLine();
